@@ -91,6 +91,47 @@ app.get('/api/health', (req, res) => {
 // ======================================
 // 5. AI CHAT FUNCTION
 // ======================================
+// Retry apabila Gemini mengalami kesesakan sementara
+async function generateWithRetry(prompt, maxRetries = 3) {
+
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+
+        try {
+
+            return await ai.models.generateContent({
+                model: 'gemini-3.8-flash',
+
+                config: {
+                    systemInstruction: systemInstruction
+                },
+
+                contents: prompt
+            });
+
+        } catch (error) {
+
+            const errorMessage = String(error.message || error);
+            const isTemporaryError =
+                errorMessage.includes('503') ||
+                errorMessage.includes('UNAVAILABLE') ||
+                errorMessage.includes('429') ||
+                errorMessage.includes('RESOURCE_EXHAUSTED') ||
+                errorMessage.includes('500');
+
+            if (!isTemporaryError || attempt === maxRetries) {
+                throw error;
+            }
+
+            const delay = attempt * 2000;
+
+            console.log(
+                `Gemini busy. Retry ${attempt}/${maxRetries} in ${delay / 1000}s`
+            );
+
+            await new Promise(resolve => setTimeout(resolve, delay));
+        }
+    }
+}
 
 async function handleAI(req, res) {
 
@@ -124,17 +165,7 @@ ${JSON.stringify(studentProgress || {})}
 Remember to follow your educational instructions.
 `;
 
-        const response = await ai.models.generateContent({
-
-            model: 'gemini-3.8-flash',
-
-            config: {
-                systemInstruction: systemInstruction
-            },
-
-            contents: context + '\nStudent message: ' + message
-
-        });
+        const response = await generateWithRetry( context + '\nStudent message: ' + message);
 
         const reply = response.text;
 
