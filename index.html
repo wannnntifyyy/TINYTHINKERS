@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#8e79d8">
+  <title>Tiny Thinkers | Learning Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" data-page-link="home" aria-label="Tiny Thinkers home">
+        <span class="brand-rainbow">🌈</span>
+        <span><strong>TINY THINKERS</strong><small>Learning Adventure</small></span>
+      </a>
+
+      <div class="profile-card">
+        <div class="avatar" id="profileAvatar">🐻</div>
+        <div><strong id="profileName">Little Explorer</strong><small id="profileLevel">Level 1 Explorer</small></div>
+      </div>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-btn active" data-page="home">🏠 <span>Home</span></button>
+        <button class="nav-btn" data-page="game">🎮 <span>Game World</span></button>
+        <button class="nav-btn" data-page="ai-tools">🤖 <span>AI Learning Studio</span></button>
+        <button class="nav-btn" data-page="bim">🤟 <span>BIM Adventure</span></button>
+        <button class="nav-btn" data-page="rewards">🏆 <span>My Rewards</span></button>
+        <button class="nav-btn" data-page="profile">👤 <span>My Profile</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="mini-tip"><span>💡</span><p>Every little step is a big achievement!</p></div>
+        <button class="nav-btn settings-link" data-page="settings">⚙️ <span>Settings</span></button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+        <p id="topGreeting">Let's learn something amazing today!</p>
+        <div class="top-stats">
+          <div class="stat-pill">⭐ <strong id="topStars">0</strong></div>
+          <div class="stat-pill">🪙 <strong id="topCoins">20</strong></div>
+        </div>
+      </header>
+
+      <!-- HOME -->
+      <section class="page active" id="page-home">
+        <div class="welcome-banner">
+          <div class="welcome-copy">
+            <span class="eyebrow">WELCOME TO YOUR LEARNING ADVENTURE</span>
+            <h1>Hello, <span id="welcomeName">Little Explorer</span>! <span class="wave">👋</span></h1>
+            <p>Play, discover and learn something new every day.</p>
+            <button class="primary-btn" data-go="game">Explore Game World <span>→</span></button>
+          </div>
+          <div class="welcome-art" aria-hidden="true">
+            <span class="sun">☀️</span>
+            <span class="rainbow-big">🌈</span>
+            <span class="welcome-mascot">🦊</span>
+            <span class="cloud cloud-one">☁️</span>
+            <span class="cloud cloud-two">☁️</span>
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <div><span class="eyebrow">YOUR ADVENTURE</span><h2>Choose what to explore</h2></div>
+          <button class="text-btn" data-go="game">See all →</button>
+        </div>
+
+        <div class="home-tiles">
+          <button class="home-tile tile-abc" data-open-module="alphabet">
+            <span class="tile-emoji">🔤</span>
+            <strong>Alphabet Adventure</strong>
+            <small>Letters, sounds & words</small>
+          </button>
+          <button class="home-tile tile-number" data-open-module="numbers">
+            <span class="tile-emoji">🔢</span>
+            <strong>Numbers & Counting</strong>
+            <small>Count from 1 to 10</small>
+          </button>
+          <button class="home-tile tile-bim" data-go="bim">
+            <span class="tile-emoji">🤟</span>
+            <strong>BIM Adventure</strong>
+            <small>Discover sign language</small>
+          </button>
+        </div>
+
+        <div class="section-heading">
+          <div><span class="eyebrow">KEEP GOING</span><h2>Your learning progress</h2></div>
+        </div>
+
+        <div class="progress-panel">
+          <div class="progress-icon">🚀</div>
+          <div class="progress-copy">
+            <strong>You're doing great!</strong>
+            <p>Complete activities to earn stars and stickers.</p>
+            <div class="progress-track"><span id="homeProgressBar"></span></div>
+          </div>
+          <strong class="progress-count" id="homeProgressText">0 activities</strong>
+        </div>
+      </section>
+
+      <!-- GAME WORLD -->
+      <section class="page" id="page-game">
+        <div class="page-intro">
+          <span class="eyebrow">PICK YOUR PLAYGROUND</span>
+          <h1>Game World <span>🎮</span></h1>
+          <p>Choose a world and start your learning adventure.</p>
+        </div>
+
+        <div class="world-carousel" id="worldCarousel">
+          <button class="world-card world-alphabet world-card-featured" data-open-module="alphabet">
+            <span class="world-bubble bubble-a">A</span>
+            <span class="world-bubble bubble-b">B</span>
+            <span class="world-bubble bubble-c">C</span>
+            <span class="world-character fox">🦊</span>
+            <span class="world-book">📚</span>
+            <span class="world-card-caption">
+              <strong>ALPHABET</strong>
+              <small>Letters & words</small>
+              <em>PLAY NOW →</em>
+            </span>
+            <span class="world-index">01</span>
+          </button>
+
+          <button class="world-card world-numbers" data-open-module="numbers">
+            <span class="chalkboard">1 2 3</span>
+            <span class="world-objects">🍎 🥛 🍌</span>
+            <span class="world-card-caption">
+              <strong>NUMBERS & COUNTING</strong>
+              <small>Learn numbers 1–10</small>
+            </span>
+            <span class="world-index">02</span>
+          </button>
+
+          <button class="world-card world-compare" data-open-module="compare">
+            <span class="compare-art">🦀 🦀 🦀<br>🐠 🐠</span>
+            <span class="compare-ribbon">MORE / FEWER</span>
+            <span class="world-card-caption">
+              <strong>COMPARING</strong>
+              <small>More or fewer?</small>
+            </span>
+            <span class="world-index">03</span>
+          </button>
+
+          <button class="world-card world-shapes" data-open-module="shapes">
+            <span class="shapes-art"><i>🔺</i><i>🟣</i><i>🟩</i></span>
+            <span class="world-character tiger">🐯</span>
+            <span class="world-card-caption">
+              <strong>SHAPES</strong>
+              <small>Discover shapes</small>
+            </span>
+            <span class="world-index">04</span>
+          </button>
+
+          <button class="world-card world-sorting" data-open-module="sorting">
+            <span class="sorting-art">🍎 🥛 🍌<br>🍞 🥚 🧃</span>
+            <span class="world-card-caption">
+              <strong>SORTING & CLASSIFYING</strong>
+              <small>Organise objects</small>
+            </span>
+            <span class="world-index">05</span>
+          </button>
+
+          <button class="world-card world-bim" data-go="bim">
+            <span class="bim-art">🤟</span>
+            <span class="world-card-caption">
+              <strong>BIM ADVENTURE</strong>
+              <small>Discover sign language</small>
+            </span>
+            <span class="world-index">06</span>
+          </button>
+        </div>
+
+        <div class="section-heading store-heading">
+          <div><span class="eyebrow">YOUR MINI MARKET</span><h2>Happy Mart Store <span>🏪</span></h2></div>
+          <span class="open-label">● OPEN FOR PLAY</span>
+        </div>
+
+        <div class="store-intro">
+          <div>
+            <strong>Welcome, Junior Storekeeper!</strong>
+            <p>Tap an item to explore its name, sound and learning challenge.</p>
+          </div>
+          <span class="store-awning">HAPPY MART</span>
+        </div>
+
+        <div class="store-rack" id="storeRack">
+          <button class="product-card" data-product="apple"><span>🍎</span><strong>Apple</strong><small>RM 2.00</small></button>
+          <button class="product-card" data-product="milk"><span>🥛</span><strong>Milk</strong><small>RM 4.00</small></button>
+          <button class="product-card" data-product="banana"><span>🍌</span><strong>Banana</strong><small>RM 3.00</small></button>
+          <button class="product-card" data-product="bread"><span>🍞</span><strong>Bread</strong><small>RM 3.50</small></button>
+          <button class="product-card" data-product="egg"><span>🥚</span><strong>Egg</strong><small>RM 5.00</small></button>
+          <button class="product-card" data-product="juice"><span>🧃</span><strong>Juice</strong><small>RM 2.50</small></button>
+        </div>
+
+        <div class="learning-panel hidden" id="learningPanel">
+          <button class="close-panel" id="closeLearningPanel" aria-label="Close">✕</button>
+          <div class="learning-object" id="learningObject">🍎</div>
+          <div class="learning-detail">
+            <span class="eyebrow">LET'S LEARN A NEW WORD</span>
+            <h2 id="learningWord">APPLE</h2>
+            <p id="learningDescription">An apple is a fruit.</p>
+            <div class="syllable" id="learningSyllable">AP - PLE</div>
+            <div class="missing-word" id="missingWord">A P P L E</div>
+            <div class="learning-actions">
+              <button class="secondary-btn" id="speakWord">🔊 Listen</button>
+              <button class="primary-btn" id="completeWord">I learned it! ⭐</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI LEARNING STUDIO -->
+      <section class="page" id="page-ai-tools">
+        <div class="ai-hero">
+          <div class="ai-hero-copy">
+            <span class="eyebrow">POWERED BY ARTIFICIAL INTELLIGENCE</span>
+            <h1>Meet Your AI Learning Buddy! 🤖</h1>
+            <p>A friendly learning companion to help you explore letters, numbers, words and new ideas.</p>
+            <span class="ai-status" id="aiStatus"><i></i> Checking AI connection...</span>
+          </div>
+          <div class="ai-hero-robot" aria-hidden="true">
+            <div class="robot-antenna"></div>
+            <div class="robot-face"><span></span><span></span></div>
+            <div class="robot-mouth"></div>
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <div><span class="eyebrow">SMART LITTLE HELPERS</span><h2>Explore AI Tools</h2></div>
+        </div>
+
+        <div class="ai-tools-grid">
+          <button class="ai-tool-card ai-purple" data-ai-mode="chat">
+            <span>💬</span><small>AI TOOL 01</small>
+            <strong>AI Learning Buddy</strong>
+            <p>Ask questions and learn through friendly conversations.</p>
+            <em>Start chatting →</em>
+          </button>
+          <button class="ai-tool-card ai-pink" data-ai-mode="pronunciation">
+            <span>🔊</span><small>AI TOOL 02</small>
+            <strong>Smart Pronunciation</strong>
+            <p>Listen to a word and practise saying it aloud.</p>
+            <em>Practise now →</em>
+          </button>
+          <button class="ai-tool-card ai-blue" data-ai-mode="adaptive">
+            <span>🧠</span><small>AI TOOL 03</small>
+            <strong>Adaptive Learning</strong>
+            <p>Get a simple activity based on your learning progress.</p>
+            <em>Explore learning →</em>
+          </button>
+          <button class="ai-tool-card ai-yellow" data-ai-mode="insights">
+            <span>📊</span><small>AI TOOL 04</small>
+            <strong>Learning Insights</strong>
+            <p>Get a helpful progress summary for parents and teachers.</p>
+            <em>View insights →</em>
+          </button>
+        </div>
+
+        <div class="ai-workspace">
+          <div class="workspace-heading">
+            <div><span class="eyebrow">YOUR PERSONAL AI ASSISTANT</span><h2 id="aiModeTitle">AI Learning Buddy</h2></div>
+            <span class="connection-label" id="connectionLabel">● Waiting for connection</span>
+          </div>
+
+          <div class="chat-layout">
+            <div class="tutor-card">
+              <div class="tutor-robot">🤖</div>
+              <strong>Hello, Explorer!</strong>
+              <p>Ask me about ABC, numbers, words or your learning activities.</p>
+              <div class="tutor-stars">✨ ⭐ ✨</div>
+            </div>
+
+            <div class="chat-box">
+              <div class="chat-messages" id="chatMessages" aria-live="polite">
+                <div class="chat-bubble ai-bubble">Hello! 🌈 I'm your AI Learning Buddy. What would you like to learn today?</div>
+              </div>
+
+              <form class="chat-form" id="aiChatForm">
+                <input id="aiInput" type="text" maxlength="500" placeholder="Ask your AI learning buddy..." autocomplete="off">
+                <button type="submit" aria-label="Send message">➤</button>
+              </form>
+
+              <div class="quick-prompts">
+                <button type="button" data-prompt="Teach me the letter A.">🔤 Teach me ABC</button>
+                <button type="button" data-prompt="Help me count from one to five.">🔢 Teach me numbers</button>
+                <button type="button" data-prompt="Tell me about apples.">🍎 Tell me about fruits</button>
+              </div>
+            </div>
+          </div>
+          <p class="ai-help-note">For parents and teachers: AI responses are learning support. Please supervise young learners.</p>
+        </div>
+
+        <div class="insights-panel">
+          <div><span class="eyebrow">LEARNING SNAPSHOT</span><h2>My Learning Progress 📚</h2></div>
+          <div class="insight-stats">
+            <div><span>⭐</span><strong id="insightTasks">0</strong><small>Activities completed</small></div>
+            <div><span>🪙</span><strong id="insightCoins">20</strong><small>Coins collected</small></div>
+            <div><span>🏅</span><strong id="insightStickers">0</strong><small>Stickers earned</small></div>
+          </div>
+          <button class="secondary-btn" id="analyseProgress">🤖 Analyse my learning</button>
+          <div id="insightResult" class="insight-result" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- BIM -->
+      <section class="page" id="page-bim">
+        <div class="page-intro">
+          <span class="eyebrow">A NEW WAY TO COMMUNICATE</span>
+          <h1>BIM Adventure <span>🤟</span></h1>
+          <p>Discover introductory Bahasa Isyarat Malaysia signs. Learn with a teacher or parent.</p>
+        </div>
+
+        <div class="bim-banner">
+          <div>
+            <span class="eyebrow">BEGINNER'S CORNER</span>
+            <h2>Let's learn with our hands!</h2>
+            <p>Explore simple greetings and everyday words.</p>
+          </div>
+          <span>👐</span>
+        </div>
+
+        <div class="bim-grid">
+          <button class="bim-card" data-sign="hello"><span>👋</span><strong>Hello</strong><small>Greeting</small><em>Learn sign →</em></button>
+          <button class="bim-card" data-sign="thank you"><span>🙏</span><strong>Thank you</strong><small>Polite expression</small><em>Learn sign →</em></button>
+          <button class="bim-card" data-sign="please"><span>💛</span><strong>Please</strong><small>Polite expression</small><em>Learn sign →</em></button>
+          <button class="bim-card" data-sign="sorry"><span>💗</span><strong>Sorry</strong><small>Everyday expression</small><em>Learn sign →</em></button>
+        </div>
+
+        <div class="bim-note">
+          <strong>Important learning note</strong>
+          <p>These cards are introductory prompts, not verified visual demonstrations of BIM signs. Have a qualified BIM user, teacher or trusted BIM learning resource confirm the correct handshape, movement and facial expression before teaching each sign.</p>
+        </div>
+      </section>
+
+      <!-- REWARDS -->
+      <section class="page" id="page-rewards">
+        <div class="page-intro">
+          <span class="eyebrow">YOU'RE A SUPERSTAR</span>
+          <h1>My Rewards <span>🏆</span></h1>
+          <p>Collect stickers by completing learning activities.</p>
+        </div>
+
+        <div class="reward-summary">
+          <div>⭐ <strong id="rewardStars">0</strong><small>Stars</small></div>
+          <div>🪙 <strong id="rewardCoins">20</strong><small>Coins</small></div>
+          <div>🎟️ <strong id="rewardStickers">0</strong><small>Stickers</small></div>
+        </div>
+
+        <div class="section-heading">
+          <div><span class="eyebrow">YOUR COLLECTION</span><h2>Sticker Album</h2></div>
+        </div>
+        <div class="sticker-grid" id="stickerGrid"></div>
+
+        <div class="section-heading">
+          <div><span class="eyebrow">SPEND YOUR STICKERS</span><h2>Character Shop</h2></div>
+        </div>
+        <div class="character-shop" id="characterShop"></div>
+      </section>
+
+      <!-- PROFILE -->
+      <section class="page" id="page-profile">
+        <div class="page-intro">
+          <span class="eyebrow">THIS IS YOUR SPACE</span>
+          <h1>My Profile <span>👤</span></h1>
+          <p>Your learning adventure, all in one place.</p>
+        </div>
+
+        <div class="profile-form-card">
+          <div class="profile-big-avatar" id="profileBigAvatar">🐻</div>
+          <label for="studentNameInput">Explorer's name</label>
+          <input id="studentNameInput" maxlength="24" placeholder="Enter your name">
+          <label for="avatarSelect">Choose your avatar</label>
+          <select id="avatarSelect">
+            <option>🐻</option><option>🦊</option><option>🐯</option>
+            <option>🐸</option><option>🐼</option><option>🐰</option>
+          </select>
+          <button class="primary-btn" id="saveProfile">Save profile</button>
+          <p class="form-feedback" id="profileFeedback"></p>
+        </div>
+      </section>
+
+      <!-- SETTINGS -->
+      <section class="page" id="page-settings">
+        <div class="page-intro">
+          <span class="eyebrow">PARENT & TEACHER AREA</span>
+          <h1>Settings ⚙️</h1>
+          <p>Manage this learning demo.</p>
+        </div>
+
+        <div class="settings-card">
+          <h2>AI connection</h2>
+          <p>The AI assistant calls your own backend endpoint. Keep your API key on the server, never in browser code.</p>
+          <label for="apiPathInput">Backend endpoint</label>
+          <input id="apiPathInput" value="/api/agent">
+          <button class="primary-btn" id="saveApiPath">Save endpoint</button>
+          <p class="form-feedback" id="settingsFeedback"></p>
+          <hr>
+          <h2>Reset demo progress</h2>
+          <p>This clears the local demo profile, coins, stars and stickers from this browser.</p>
+          <button class="danger-btn" id="resetProgress">Reset progress</button>
+        </div>
+      </section>
+
+      <footer class="app-footer">🌈 TINY THINKERS · ABC & BIM · Festival of Ideas – Agentic Challenge AI 2026</footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
